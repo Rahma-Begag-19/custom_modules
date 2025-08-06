@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    
     <template id="auth_signup.login" inherit_id="web.login" name="Sign up - Reset Password">
         <xpath expr="//input[@id='password']" position="replace">
             <div class="mb-3 password-toggle-wrapper">
@@ -25,4 +26,5 @@
             </div>
         </xpath>
     </template>
+    
 </odoo>
