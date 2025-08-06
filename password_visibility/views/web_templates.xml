@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="auth_signup.login" inherit_id="web.login" name="Sign up - Reset Password">
+        <xpath expr="//input[@id='password']" position="replace">
+            <div class="mb-3 password-toggle-wrapper">
+                <div class="input-group">
+                    <input type="password" placeholder="Password" name="password" id="password"
+                           t-attf-class="form-control #{'form-control-sm' if form_small else ''}"
+                           required="required" autocomplete="current-password"
+                           t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                    <button type="button" class="btn btn-outline-secondary password-toggle"
+                            onclick="togglePasswordVisibility(this)">
+                        <i class="fa fa-eye"></i>
+                    </button>
+                    <script>
+                        function togglePasswordVisibility(button) {
+                        const input = button.parentElement.querySelector('input');
+                        const isPassword = input.type === 'password';
+
+                        input.type = isPassword ? 'text' : 'password';
+                        button.querySelector('i').className = isPassword ? 'fa fa-eye-slash' : 'fa fa-eye';
+                        }
+                    </script>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
